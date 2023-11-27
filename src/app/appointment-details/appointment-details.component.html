@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit(patientForm)" #patientForm="ngForm">
+        <h3>Appointment Confirmation Form Form</h3>
+        <p>{{AppointmentDetails.first_name}} {{AppointmentDetails.last_name}}</p>
+        <p>{{AppointmentDetails.email}}</p>
+        
+        <input type="checkbox" id="approval" name="approval" value="approval" ngModel>
+        <label for="vehicle1"> Approved</label><br>
+
+        <label for="email">Additional Details?</label>
+        <input type="text" id="notes" name="notes" placeholder="Your email is.." ngModel>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid">Submit</button>
+      </form>
+</div>

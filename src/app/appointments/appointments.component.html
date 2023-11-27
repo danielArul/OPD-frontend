@@ -1,0 +1,24 @@
+<table class="table container">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">email</th>
+        <th scope="col">Date Of Appointment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointments of appointmentList"  routerLink="/appointments/{{ appointments.id }}">
+        <th scope="row">{{ appointments.id}}</th>
+        <td>{{ appointments.first_name}}</td>
+        <td>{{ appointments.last_name}}</td>
+        <td>{{ appointments.email}}</td>
+        <td>{{ appointments.date_of_appointment | date:'short'}}</td>
+       </tr>      
+    </tbody>
+  </table>
+
+ 
+  
+   

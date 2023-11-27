@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit()">
+        <h3>Add Avaialble Appointments</h3>
+        <div class="mb-3">
+            <select class="form-select" name="doctor" [(ngModel)] = "formData.doctor" 
+            (change)="getDoctorDetails()">
+              <option value="" selected disabled hidden>Choose Doctor</option>
+              <option *ngFor="let doctor of listOfDoctor" [ngValue]="doctor">{{doctor.first_name}}</option>
+            </select>
+        </div>
+        <div class="mb-3">           
+                <label for="datetimeInput">Select Date and Time:</label>
+                <input type="datetime-local" id="datetimeInput" [(ngModel)]="formData.availableTimes" name="availableTimes">
+        </div>              
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <form (ngSubmit)="onSubmit()" #patientForm="ngForm">
+        <h3>Appointment Form</h3>
+        <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" name="firstname" [(ngModel)]="formData.first_name" 
+          #fname="ngModel" required>
+          <span *ngIf="fname.touched && fname.dirty">First Name is Mandatory</span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" name="lastname" [(ngModel)]="formData.last_name" required
+          #lname="ngModel">
+          <span></span>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="formData.email" required email>
+        </div>
+        <div class="mb-3">
+           
+          <select class="form-select" name="selectedDoctor" [(ngModel)] = "formData.selectedDoctor" 
+          (change)="getDoctorDetails(formData.selectedDoctor)">
+            <option value="" selected disabled hidden>Choose Doctor</option>
+            <option *ngFor="let doctor of listOfDoctor" [ngValue]="doctor">{{doctor.first_name}}</option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+           
+          <select class="form-select" name="availableTimes" [(ngModel)] = "formData.availableTimes" >
+            <option value="" selected disabled hidden>Choose Time</option>
+            <option *ngFor="let time of listOfAvailableTimes" [ngValue]="time">{{time.availableTimes}}</option>
+          </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" [disabled]="!patientForm.valid">Submit</button>
+      </form>
+</div>
